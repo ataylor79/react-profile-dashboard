@@ -4,8 +4,13 @@ import { createTheme, Theme } from '@mui/material/styles';
 // types
 type ThemeMode = 'dark' | 'light';
 type UseMode = () => [Partial<Theme>, { toggleColourMode: () => void }];
+export type Colours = {
+  [key: string]: {
+    [key: number]: string;
+  };
+};
 
-export const tokens = (mode: ThemeMode) => ({
+export const tokens = (mode: ThemeMode): Colours => ({
   ...(mode === 'dark' ? darkColours : lightColours),
 });
 
@@ -25,7 +30,7 @@ const darkColours = {
     100: '#d0d1d5',
     200: '#a1a4aa',
     300: '#727680',
-    400: '#434955',
+    400: '#1F2A40',
     500: '#141b2b',
     600: '#101622',
     700: '#0c101a',
