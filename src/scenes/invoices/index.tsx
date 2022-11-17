@@ -1,13 +1,15 @@
 import { Box, Typography, useTheme } from '@mui/material';
 import { DataGrid, GridRenderCellParams, GridColumns } from '@mui/x-data-grid';
 import Header from '../../components/Header';
-import { mockDataInvoices } from '../../data/mockData';
+import useInvoices from '../../hooks/useInvoices';
 
 import { tokens } from '../../theme';
 
 const Invoices = () => {
   const theme = useTheme();
   const colours = tokens(theme.palette.mode);
+
+  const [mockDataInvoices] = useInvoices();
 
   const columns: GridColumns = [
     { field: 'id', headerName: 'ID' },

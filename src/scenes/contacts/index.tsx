@@ -1,13 +1,15 @@
 import { Box, useTheme } from '@mui/material';
 import { DataGrid, GridToolbar, GridColumns } from '@mui/x-data-grid';
 import Header from '../../components/Header';
-import { mockDataContacts } from '../../data/mockData';
+import useContacts from '../../hooks/useContacts';
 
 import { tokens } from '../../theme';
 
 const Contacts = () => {
   const theme = useTheme();
   const colours = tokens(theme.palette.mode);
+
+  const [mockDataContacts] = useContacts();
 
   const columns: GridColumns = [
     { field: 'id', headerName: 'ID', flex: 0.5 },

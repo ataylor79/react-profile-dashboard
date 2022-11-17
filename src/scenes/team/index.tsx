@@ -1,7 +1,7 @@
 import { Box, Typography, useTheme } from '@mui/material';
 import { DataGrid, GridColumns, GridRenderCellParams } from '@mui/x-data-grid';
 import Header from '../../components/Header';
-import { mockDataTeam } from '../../data/mockData';
+import useTeams from '../../hooks/useTeams';
 import AdminPanelOutlinedIcons from '@mui/icons-material/AdminPanelSettingsOutlined';
 import LockOpenOutlinedIcons from '@mui/icons-material/LockOpenOutlined';
 import SecurityOutlinedIcons from '@mui/icons-material/SecurityOutlined';
@@ -40,6 +40,8 @@ const renderAccessCell = (
 const Team = () => {
   const theme = useTheme();
   const colours = tokens(theme.palette.mode);
+
+  const [mockDataTeam] = useTeams();
 
   const columns: GridColumns = [
     { field: 'id', headerName: 'ID' },

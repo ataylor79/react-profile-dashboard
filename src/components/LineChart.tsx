@@ -31,7 +31,7 @@ const LineChart = ({ isDashboard = false }: LineChartProps) => {
           },
         },
       }}
-      colors={isDashboard ? { datum: 'color' } : { scheme: 'nivo' }}
+      colors={isDashboard ? { scheme: 'pastel1' } : { scheme: 'nivo' }}
       margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
       xScale={{ type: 'point' }}
       yScale={{
