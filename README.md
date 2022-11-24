@@ -1,6 +1,11 @@
-# Getting Started with Create React App
+# My CV Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A dashboard to showcase my skillsets and experience to potential employers in a interesting and engaging way. Also showcases Front-end/React mastery!
+
+Next steps.
+    - Add real data.
+    - Create serverless API in AWS to provide data for the dashboard.
+    - Testing Frameworks
 
 ## Available Scripts
 
