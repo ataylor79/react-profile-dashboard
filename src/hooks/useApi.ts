@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-const useApi = (request: string): [boolean, any[], string | null] => {
+const useApi = <T>(request: string): [T[], string | null, boolean] => {
   const [loading, setLoading] = useState(false);
   const [result, setResults] = useState([]);
   const [error, setError] = useState<string | null>(null);
@@ -20,7 +20,7 @@ const useApi = (request: string): [boolean, any[], string | null] => {
       })
       .catch((err) => {
         setLoading(false);
-        setError(err);
+        setError('Could not load data');
       });
   }, [request]);
 
@@ -28,7 +28,7 @@ const useApi = (request: string): [boolean, any[], string | null] => {
     fetchData();
   }, [request, fetchData]);
 
-  return [loading, result, error];
+  return [result, error, loading];
 };
 
 export default useApi;

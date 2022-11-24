@@ -1,4 +1,4 @@
-import { Box, useTheme } from '@mui/material';
+import { Box, useTheme, Alert } from '@mui/material';
 import { DataGrid, GridToolbar, GridColumns } from '@mui/x-data-grid';
 import Header from '../../components/Header';
 import useContacts from '../../hooks/useContacts';
@@ -9,7 +9,7 @@ const Contacts = () => {
   const theme = useTheme();
   const colours = tokens(theme.palette.mode);
 
-  const [loading, mockDataContacts, error] = useContacts();
+  const [contactsData, error] = useContacts();
 
   const columns: GridColumns = [
     { field: 'id', headerName: 'ID', flex: 0.5 },
@@ -38,39 +38,44 @@ const Contacts = () => {
         title="CONTACTS"
         subtitle="List of contacts for future reference"
       ></Header>
-      {error && <Box>{error}</Box>}
-      {loading && <Box>Loading Data</Box>}
-      <Box
-        sx={{
-          m: '40px 0 0 0',
-          height: '75vh',
-          '& .MuiDataGrid-root': { border: 'none' },
-          '& .MuiDataGrid-cell': { borderBottom: 'none' },
-          '& .name-column--cell': { color: colours.greenAccent[300] },
-          '& .MuiDataGrid-columnHeaders': {
-            backgroundColor: colours.blueAccent[700],
-            borderBottom: 'none',
-          },
-          '& .MuiDataGrid-virtualScroller': {
-            backgroundColor: colours.primary[400],
-          },
-          '& .MuiDataGrid-footerContainer': {
-            borderTop: 'none',
-            backgroundColor: colours.blueAccent[700],
-          },
-          '& .MuiDataGrid-toolbarContainer .MuiButton-text': {
-            color: `${colours.grey[100]} !important`,
-          },
-        }}
-      >
-        <DataGrid
-          rows={mockDataContacts}
-          columns={columns}
-          components={{
-            Toolbar: GridToolbar,
+      {error && (
+        <Alert variant="filled" severity="error">
+          {error}
+        </Alert>
+      )}
+      {!!contactsData.length && (
+        <Box
+          sx={{
+            m: '40px 0 0 0',
+            height: '75vh',
+            '& .MuiDataGrid-root': { border: 'none' },
+            '& .MuiDataGrid-cell': { borderBottom: 'none' },
+            '& .name-column--cell': { color: colours.greenAccent[300] },
+            '& .MuiDataGrid-columnHeaders': {
+              backgroundColor: colours.blueAccent[700],
+              borderBottom: 'none',
+            },
+            '& .MuiDataGrid-virtualScroller': {
+              backgroundColor: colours.primary[400],
+            },
+            '& .MuiDataGrid-footerContainer': {
+              borderTop: 'none',
+              backgroundColor: colours.blueAccent[700],
+            },
+            '& .MuiDataGrid-toolbarContainer .MuiButton-text': {
+              color: `${colours.grey[100]} !important`,
+            },
           }}
-        />
-      </Box>
+        >
+          <DataGrid
+            rows={contactsData}
+            columns={columns}
+            components={{
+              Toolbar: GridToolbar,
+            }}
+          />
+        </Box>
+      )}
     </Box>
   );
 };
