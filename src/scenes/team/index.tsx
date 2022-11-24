@@ -41,7 +41,7 @@ const Team = () => {
   const theme = useTheme();
   const colours = tokens(theme.palette.mode);
 
-  const [mockDataTeam] = useTeams();
+  const [loading, teamData, error] = useTeams();
 
   const columns: GridColumns = [
     { field: 'id', headerName: 'ID' },
@@ -68,9 +68,12 @@ const Team = () => {
       renderCell: (params) => renderAccessCell(params, colours),
     },
   ];
+
   return (
     <Box sx={{ m: '20px' }}>
       <Header title="TEAM" subtitle="Managing the team members"></Header>
+      {error && <Box>{error}</Box>}
+      {loading && <Box>Loading Data</Box>}
       <Box
         sx={{
           m: '40px 0 0 0',
@@ -91,7 +94,7 @@ const Team = () => {
           },
         }}
       >
-        <DataGrid rows={mockDataTeam} columns={columns} />
+        <DataGrid rows={teamData} columns={columns} />
       </Box>
     </Box>
   );

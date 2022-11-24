@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
-const useApi = (request: string): [any[], string | null] => {
+const useApi = (request: string): [boolean, any[], string | null] => {
+  const [loading, setLoading] = useState(false);
   const [result, setResults] = useState([]);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
+  const fetchData = useCallback(() => {
+    setLoading(true);
     fetch(request)
       .then(async (response) => {
         if (!response.ok) {
@@ -14,11 +16,19 @@ const useApi = (request: string): [any[], string | null] => {
         const result = await response.json();
         setResults(result.data);
         setError(null);
+        setLoading(false);
       })
-      .catch((err) => setError(err));
+      .catch((err) => {
+        setLoading(false);
+        setError(err);
+      });
   }, [request]);
 
-  return [result, error];
+  useEffect(() => {
+    fetchData();
+  }, [request, fetchData]);
+
+  return [loading, result, error];
 };
 
 export default useApi;

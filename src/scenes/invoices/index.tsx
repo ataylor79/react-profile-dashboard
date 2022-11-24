@@ -9,7 +9,7 @@ const Invoices = () => {
   const theme = useTheme();
   const colours = tokens(theme.palette.mode);
 
-  const [mockDataInvoices] = useInvoices();
+  const [loading, mockDataInvoices, error] = useInvoices();
 
   const columns: GridColumns = [
     { field: 'id', headerName: 'ID' },
@@ -37,6 +37,8 @@ const Invoices = () => {
         title="CONTACTS"
         subtitle="List of contacts for future reference"
       ></Header>
+      {error && <Box>{error}</Box>}
+      {loading && <Box>Loading Data</Box>}
       <Box
         sx={{
           m: '40px 0 0 0',

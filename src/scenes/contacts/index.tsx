@@ -9,7 +9,7 @@ const Contacts = () => {
   const theme = useTheme();
   const colours = tokens(theme.palette.mode);
 
-  const [mockDataContacts] = useContacts();
+  const [loading, mockDataContacts, error] = useContacts();
 
   const columns: GridColumns = [
     { field: 'id', headerName: 'ID', flex: 0.5 },
@@ -38,6 +38,8 @@ const Contacts = () => {
         title="CONTACTS"
         subtitle="List of contacts for future reference"
       ></Header>
+      {error && <Box>{error}</Box>}
+      {loading && <Box>Loading Data</Box>}
       <Box
         sx={{
           m: '40px 0 0 0',
