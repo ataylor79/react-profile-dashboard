@@ -97,7 +97,7 @@ const Sidebar = () => {
                 }}
               >
                 <Typography variant="h3" color={colours.grey[100]}>
-                  ADMINIS
+                  CV DASHBOARD
                 </Typography>
                 <IconButton onClick={() => toggleSidebar()}>
                   <MenuOutlinedIcon />
