@@ -91,6 +91,7 @@ const BarChart = ({ isDashboard = false }: BarChartProps) => {
         legendPosition: 'middle',
         legendOffset: -40,
       }}
+      enableLabel={!isDashboard}
       labelSkipWidth={10}
       labelSkipHeight={12}
       labelTextColor={{

@@ -101,7 +101,7 @@ const lightColours = {
     300: '#2e7c67',
     400: '#3da58a',
     500: '#4cceac',
-    600: '#70d8bd',
+    600: '#5ed8b8',
     700: '#94e2cd',
     800: '#b7ebde',
     900: '#dbf5ee',
