@@ -5,3 +5,5 @@ const createDataUrl = (base: string, path: string) => `data/${path}`;
 export const getTeams = () => createDataUrl(BASE_URL, 'teams.json');
 export const getContacts = () => createDataUrl(BASE_URL, 'contacts.json');
 export const getInvoices = () => createDataUrl(BASE_URL, 'invoices.json');
+
+export const getSkills = () => createDataUrl(BASE_URL, 'skills.json');

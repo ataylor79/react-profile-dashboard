@@ -13,6 +13,7 @@ import BarChart from '../../components/BarChart';
 import GeoChart from '../../components/GeoChart';
 import StatBox from '../../components/StatBox';
 import ProgressCircle from '../../components/ProgressCircle';
+import useSkills from '../../hooks/useSkills';
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -27,21 +28,7 @@ const Dashboard = () => {
           alignItems: 'center',
         }}
       >
-        <Header title="DASHBOARD" subtitle="Welcome to your dashboard"></Header>
-        <Box>
-          <Button
-            sx={{
-              backgroundColor: colours.blueAccent[700],
-              color: colours.grey[100],
-              fontSize: '14px',
-              fontWeight: 'bold',
-              padding: '10px 20px',
-            }}
-          >
-            <DownloadOutlineIcon sx={{ mr: '10px' }} />
-            Download Reports
-          </Button>
-        </Box>
+        <Header title="Alec Taylor" subtitle="Resume Dashboard"></Header>
       </Box>
 
       {/* Grid */}

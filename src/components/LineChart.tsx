@@ -27,11 +27,11 @@ const LineChart = ({ isDashboard = false }: LineChartProps) => {
         },
         tooltip: {
           container: {
-            color: colours.primary[500],
+            color: colours.grey[500],
           },
         },
       }}
-      colors={isDashboard ? { scheme: 'pastel1' } : { scheme: 'nivo' }}
+      colors={isDashboard ? { scheme: 'category10' } : { scheme: 'nivo' }}
       margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
       xScale={{ type: 'point' }}
       yScale={{
