@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, Typography, useTheme } from '@mui/material';
+import { Box, IconButton, Typography, useTheme } from '@mui/material';
 import { tokens } from '../../theme';
 import Header from '../../components/Header';
 import { mockTransactions } from '../../data/mockData';
@@ -13,7 +13,6 @@ import BarChart from '../../components/BarChart';
 import GeoChart from '../../components/GeoChart';
 import StatBox from '../../components/StatBox';
 import ProgressCircle from '../../components/ProgressCircle';
-import useSkills from '../../hooks/useSkills';
 
 const Dashboard = () => {
   const theme = useTheme();
